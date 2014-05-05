@@ -95,3 +95,8 @@ local.properties
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Intellij
+.idea/
+*.iml
+*.iws
