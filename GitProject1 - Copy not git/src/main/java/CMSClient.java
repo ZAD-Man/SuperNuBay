@@ -1,5 +1,4 @@
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
-import edu.neumont.csc380.cms.model.Media;
 import edu.neumont.csc380.cms.service.MediaService;
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 
@@ -53,15 +52,16 @@ public class CMSClient {
 
 	public static void main(String[] args) {
 		CMSClient c = new CMSClient();
-		Media med = c.getAuctionMedia(2L).readEntity(Media.class);
-		System.out.println(med.getCaption());
-		System.out.println(c.getUserMedia(1L));
+		//Media med = c.getAuctionMedia(2L).readEntity(Media.class);
+		//System.out.println(med.getCaption());
+		//System.out.println(c.getUserMedia(1L));
 
 		testAuctionImageUpload(c);
 		testUserImageUpload(c);
 	}
 
 	public static void testAuctionImageUpload(CMSClient c) {
+
 		File imgPath = new File("image.jpg");
 		BufferedImage bufferedImage;
 		try {

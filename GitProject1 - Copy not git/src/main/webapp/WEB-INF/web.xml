@@ -19,37 +19,7 @@
         <url-pattern>/api/*</url-pattern>
     </servlet-mapping>
 
-    <!-- SECURITY CONSTRAINT #1 -->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>wholesale</web-resource-name>
-            <url-pattern>/acme/wholesale/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>PARTNER</role-name>
-        </auth-constraint>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
 
-    <!-- SECURITY CONSTRAINT #2 -->
-    <security-constraint>
-        <web-resource-collection>
-            <web-resource-name>retail</web-resource-name>
-            <url-pattern>/acme/retail/*</url-pattern>
-            <http-method>GET</http-method>
-            <http-method>POST</http-method>
-        </web-resource-collection>
-        <auth-constraint>
-            <role-name>CLIENT</role-name>
-        </auth-constraint>
-        <user-data-constraint>
-            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
-        </user-data-constraint>
-    </security-constraint>
 
 
 </web-app>
