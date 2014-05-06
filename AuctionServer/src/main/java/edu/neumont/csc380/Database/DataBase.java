@@ -3,14 +3,15 @@ package edu.neumont.csc380.Database;
 
 public class DataBase
 {
-	private static Users users = new Users();
-	private static AuthorizationTokens tokens = new AuthorizationTokens();
+	private static Items items = new Items();
+//	private static AuthorizationTokens tokens = new AuthorizationTokens();
 	
-	public static Users getUsers() {
-		return users;
+	public static Items getItems() {
+		return items;
 	}
 	
-	public static AuthorizationTokens getTokens() {
-		return tokens;
-	}
+//  TODO: Replace with bids
+//	public static AuthorizationTokens getTokens() {
+//		return tokens;
+//	}
 }
