@@ -40,6 +40,10 @@ public class CRUDManagement implements CRUDService {
             throw new CustomException("NAME_TOO_SHORT - User name is under the character limit");
         }
 		
+		if(newProfile.getLocation() == null){
+			throw new CustomException("NO_LOCATION - Location is missing");
+		}
+		
 		if(newProfile.getLocation().getCity().length() > 50)
         {
             throw new CustomException("LOCATION_TOO_LONG - Location is over character limit");
