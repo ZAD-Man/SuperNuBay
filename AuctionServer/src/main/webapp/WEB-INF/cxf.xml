@@ -17,7 +17,7 @@
     	<property name="produceMediaTypes">
     		<list>
     			<value>application/json</value>
-    			<value>application/vnd.neumont.auth.edu-v1+json</value>
+    			<value>application/vnd.neumont.auction.edu-v1+json</value>
     		</list>
     	</property>
     	<property name="ignoreNamespaces" value="true"></property>
@@ -37,9 +37,14 @@
 	   	  <ref bean="noUserFoundExceptionMapper"/>
 	   	  <ref bean="passwordPreviouslyUsedExceptionMapper"/>
 	   	  <ref bean="tokenExpiredExceptionMapper"/>
-	   	  <ref bean="tokenInvalidExceptionMapper"/>
-	   	  <ref bean="tokenMissingExceptionMapper"/>
-	   	  <ref bean="tokenRemovedExceptionMapper"/>
+	   	  <ref bean="noNameExceptionMapper"/>
+	   	  <ref bean="noOwnerExceptionMapper"/>
+	   	  <ref bean="endDateBeforeStartDateExceptionMapper"/>
+	   	  <ref bean="bidTooLowExceptionMapper"/>
+	   	  <ref bean="invalidImageLinkExceptionMapper"/>
+	   	  <ref bean="invalidImageExceptionMapper"/>
+	   	  <ref bean="descriptionTooLongExceptionMapper"/>
+	   	  <ref bean="unsafeDescriptionExceptionMapper"/>
 	   </jaxrs:providers>
 	</jaxrs:server>
 </beans>

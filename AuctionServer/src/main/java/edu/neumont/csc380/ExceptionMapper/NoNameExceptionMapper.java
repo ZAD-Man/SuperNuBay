@@ -12,10 +12,10 @@ import edu.neumont.csc380.Exceptions.StatusCodes;
 
 @Provider
 @Service
-public class InvalidPasswordOrUserExceptionMapper implements ExceptionMapper<InvalidPasswordOrUserNameException>
+public class NoNameExceptionMapper implements ExceptionMapper<NoNameException>
 {
-	public Response toResponse(InvalidPasswordOrUserNameException e) 
+	public Response toResponse(NoNameException e) 
 	{
-		return Response.status(StatusCodes.INVALID_PASSWORD_OR_USERNAME).entity(e.getMessage()).build();
+		return Response.status(StatusCodes.ERROR_400).entity(e.getMessage()).build();
 	}
 }

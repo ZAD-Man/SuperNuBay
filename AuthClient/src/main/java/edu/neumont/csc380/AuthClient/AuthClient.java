@@ -51,11 +51,12 @@ public class AuthClient {
 		return success;
 	}
 	
-	public AuthResponse createAuth(String userId, String userName, String password){
+	public AuthResponse createAuth(String userId, String userName, String password, String accessToken){
 		Credentials creds = new Credentials();
 		creds.setId(Integer.parseInt(userId));
 		creds.setUserName(userName);
 		creds.setPassword(password);
+		creds.setAccessToken(accessToken);
 		
 		return invokeAuthMethod(AuthInvoker.CREATE_AUTH, null, creds);
 	}

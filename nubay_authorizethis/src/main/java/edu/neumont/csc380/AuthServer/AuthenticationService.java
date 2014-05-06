@@ -68,8 +68,7 @@ public class AuthenticationService implements IAuthenticationService {
 			payload.setId(new Integer(creds.getId()).toString());
 			payload.setToken(tokenString);
 			response = Response.status(200).entity(payload).build();
-		}
-		else { throw new NoUserFoundException("Username not found"); }
+		} else { throw new NoUserFoundException("Username not found"); }
 		return response;
 	}
 

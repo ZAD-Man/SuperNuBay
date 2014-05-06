@@ -6,16 +6,18 @@ import javax.ws.rs.ext.Provider;
 
 import org.springframework.stereotype.Service;
 
+import edu.neumont.csc380.Exceptions.EndDateBeforeStartDateException;
 import edu.neumont.csc380.Exceptions.InvalidPasswordOrUserNameException;
 import edu.neumont.csc380.Exceptions.NoNameException;
+import edu.neumont.csc380.Exceptions.NoOwnerException;
 import edu.neumont.csc380.Exceptions.StatusCodes;
 
 @Provider
 @Service
-public class InvalidPasswordOrUserExceptionMapper implements ExceptionMapper<InvalidPasswordOrUserNameException>
+public class EndDateBeforeStartDateExceptionMapper implements ExceptionMapper<EndDateBeforeStartDateException>
 {
-	public Response toResponse(InvalidPasswordOrUserNameException e) 
+	public Response toResponse(EndDateBeforeStartDateException e) 
 	{
-		return Response.status(StatusCodes.INVALID_PASSWORD_OR_USERNAME).entity(e.getMessage()).build();
+		return Response.status(StatusCodes.ERROR_400).entity(e.getMessage()).build();
 	}
 }

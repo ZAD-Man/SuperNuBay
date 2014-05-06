@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.neumont.csc380</groupId>
-  <artifactId>authorization</artifactId>
+  <artifactId>authClient</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>authorization Maven Webapp</name>
+  <name>authClient Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <properties>
   	<cxf.version>2.7.11</cxf.version>
@@ -52,6 +52,6 @@
     </dependency>
   </dependencies>
   <build>
-    <finalName>authorization</finalName>
+    <finalName>authClient</finalName>
   </build>
 </project>

@@ -11,4 +11,5 @@ public class StatusCodes {
 	public static final int TOKEN_EXPIRED = 438;
 	public static final int TOKEN_REMOVED = 439;
 	public static final int PASSWORD_PREVIOUSLY_USED = 440;
+	public static final int ERROR_400 = 400;
 }
