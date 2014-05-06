@@ -53,11 +53,7 @@ public class AuthenticationService implements IAuthenticationService {
 	public Response handleCreationRequest(Credentials creds) throws Exception {
 		Response response = null;
 		boolean exists = DataBase.getUsers().containsUser(creds.getUserName()); //CHECK IF USER EXISTS
-		boolean validToken = CreateValidator.isValidCreateToken(creds.getAccessToken());
-		if (!validToken) {
-			throw new TokenInvalidException();
-		}
-		if (!exists) {
+		if (!!!exists) {
 			DataBase.getUsers().addUser(creds.getUserName(), creds.getPassword());
 			User user = DataBase.getUsers().getUserByName(creds.getUserName());
 			String tokenString = TokenManager.generateEncryptedTokenString(user.getUserId());

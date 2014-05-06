@@ -124,7 +124,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-      </Host>
+      <Context docBase="nubay_authorizethis" path="/authorization" reloadable="true" source="org.eclipse.jst.j2ee.server:nubay_authorizethis"/></Host>
     </Engine>
   </Service>
 </Server>
