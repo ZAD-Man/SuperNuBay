@@ -103,7 +103,7 @@ public class TestClient {
 		System.out.print("Enter password: ");
 		String password = scan.nextLine();
 		
-		AuthResponse response = client.createAuth(userId, userName, password);
+		AuthResponse response = client.createAuth(userId, userName, password, "FakeToken");
 		System.out.println(response.toString());
 		
 		if( response.isSuccess() ) {

@@ -5,11 +5,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.ws.rs.core.Response;
-import javax.ws.rs.ext.Provider;
+
 import org.springframework.stereotype.Service;
 
-import customExceptions.CustomException;
 import profile.Profile;
+import customExceptions.CustomException;
 
 @Service("CRUDManagementService")
 public class CRUDManagement implements CRUDService {
@@ -54,18 +54,7 @@ public class CRUDManagement implements CRUDService {
             throw new CustomException("INVALID_EMAIL - Email is not a valid email address");
         }
 		
-	/*	if(newProfile.getImage().getImageURI() == null)
-        {
-            throw new CustomException("INVALID_IMAGE_LINK - The image link does not lead to an image.");
-        } 
-		
-	 	if(newProfile.getImage().getSize() == null)
-        {
-            //if not a jpg, gif, png  OR  correct size....
-            throw new CustomException("INVALID_IMAGE - The image does not meet dimension or format requirements");
-        }  */
-		
-		newProfile.setUserRating(0);
+		newProfile.setUserRating(0); //TODO: Set user rating correctly
 		
 		tempServer.put(newProfile.getUserID(), newProfile);
 		
@@ -109,17 +98,6 @@ public class CRUDManagement implements CRUDService {
 		        {
 		            throw new CustomException("INVALID_EMAIL - Email is not a valid email address");
 		        }
-				
-			/*	if(profile.getImage().getImageURI() == null)
-		        {
-		            throw new CustomException("INVALID_IMAGE_LINK - The image link does not lead to an image.");
-		        } 
-				
-			 	if(profile.getImage().getSize() == null)
-		        {
-		            //if not a jpg, gif, png  OR  correct size....
-		            throw new CustomException("INVALID_IMAGE - The image does not meet dimension or format requirements");
-		        }  */
 				
 				tempServer.put(id,profile);
 //				Profile updateProfile = (Profile) tempServer.get(id);

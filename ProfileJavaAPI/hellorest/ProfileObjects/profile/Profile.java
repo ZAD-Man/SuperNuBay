@@ -7,7 +7,6 @@ public class Profile {
 
 	private int userID;
 	private String name;
-//	private Image userImage; 
 	private String email;
 	private int userRating;
 	private Location location;
