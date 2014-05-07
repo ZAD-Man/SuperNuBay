@@ -21,6 +21,14 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<scope>compile</scope>
 	</dependency>
+	
+	<!-- ProfileServer dependency -->
+	<dependency>
+		<groupId>edu.neumont.csc380</groupId>
+		<artifactId>profile-server</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<scope>compile</scope>
+	</dependency>
   
   	<!-- Jasypt (encryption) -->
   	<dependency>
