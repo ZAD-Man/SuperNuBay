@@ -17,7 +17,7 @@ public class Item {
 							//Body Timestamp Always  
 
 	Status status; 			//The status of the item Body Enum Always
-	
+	long   ownerId;			//The item owners ID
 	String ownerLink; 		//The item owner Body Link Always
 	String thumbnailLink; 	//A thumbnail image of the item Body Link Always
 	String imageLink;	 	//The original image of the item Body Link Always
