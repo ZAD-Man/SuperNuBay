@@ -1,9 +1,11 @@
-package edu.neumont.csc380.AuthServer;
+package edu.neumont.csc380.AuctionServer;
 
 import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Service;
 
+import edu.neumont.csc380.AuthServer.AuthPayload;
+import edu.neumont.csc380.AuthServer.Credentials;
 import edu.neumont.csc380.Database.AuthorizationToken;
 import edu.neumont.csc380.Exceptions.NoIDException;
 import edu.neumont.csc380.Exceptions.NoUserFoundException;

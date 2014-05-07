@@ -1,4 +1,4 @@
-package edu.neumont.csc380.AuthServer;
+package edu.neumont.csc380.AuctionServer;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -6,6 +6,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.model.wadl.ElementClass;
+
+import edu.neumont.csc380.AuthServer.AuthPayload;
+import edu.neumont.csc380.AuthServer.Credentials;
 
 @Path("/auction")
 public interface IAuctionService {
