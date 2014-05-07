@@ -14,7 +14,6 @@
 	
 	<bean id="profileHandler" class="edu.neumont.csc380.profile.handler.ProfileRequestHandler"/>
 
-
 	<jaxrs:server id="jaxrsService" address="/">
 		<jaxrs:serviceBeans>
 			<ref bean="CRUDManagementService" />

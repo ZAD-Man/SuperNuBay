@@ -14,7 +14,7 @@
 
   <dependencies>
   
-  <!-- AuthClient dependency -->
+    <!-- AuthClient dependency -->
 	<dependency>
 		<groupId>edu.neumont.csc380</groupId>
 		<artifactId>authClient</artifactId>
