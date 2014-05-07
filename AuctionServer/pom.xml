@@ -21,7 +21,15 @@
 		<version>0.0.1-SNAPSHOT</version>
 		<scope>compile</scope>
 	</dependency>
-  
+
+      <!-- CMSClient dependency -->
+      <dependency>
+          <groupId>edu.neumont.csc380</groupId>
+          <artifactId>hellorest-server</artifactId>
+          <version>0.0.1-SNAPSHOT</version>
+          <scope>compile</scope>
+      </dependency>
+
   	<!-- Jasypt (encryption) -->
   	<dependency>
 		<groupId>org.jasypt</groupId>
