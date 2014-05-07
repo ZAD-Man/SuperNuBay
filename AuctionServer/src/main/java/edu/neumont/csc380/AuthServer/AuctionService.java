@@ -12,7 +12,7 @@ import edu.neumont.csc380.Exceptions.TokenInvalidException;
 import edu.neumont.csc380.Exceptions.TokenMissingException;
 
 @Service("IAuthenticationService")
-public class AuthenticationService implements IAuctionService {
+public class AuctionService implements IAuctionService {
 	
 	public Response handleLoginRequest(Credentials credentials) throws Exception {		
 		Response response = null;

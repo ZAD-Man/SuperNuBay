@@ -35,10 +35,3 @@ public interface IAuctionService {
 	Response verify(AuthPayload auth)  throws Exception;
 }
 
-//@Path("/Authorize")
-//public interface AuthorizeService {
-//	@POST
-//	@Path("/{name}")
-//	@Produces("text/html")
-//	String sayHello(@PathParam("name") String name);
-//}
