@@ -6,7 +6,6 @@ import javax.ws.rs.ext.Provider;
 
 import org.springframework.stereotype.Service;
 
-import edu.neumont.csc380.Exceptions.InvalidPasswordOrUserNameException;
 import edu.neumont.csc380.Exceptions.NoNameException;
 import edu.neumont.csc380.Exceptions.StatusCodes;
 

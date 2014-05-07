@@ -6,14 +6,14 @@ import javax.ws.rs.ext.Provider;
 
 import org.springframework.stereotype.Service;
 
-import edu.neumont.csc380.Exceptions.EndDateBeforeStartDateException;
+import edu.neumont.csc380.Exceptions.DescriptionTooLongException;
 import edu.neumont.csc380.Exceptions.StatusCodes;
 
 @Provider
 @Service
-public class EndDateBeforeStartDateExceptionMapper implements ExceptionMapper<EndDateBeforeStartDateException>
+public class DescriptionTooLongExceptionMapper implements ExceptionMapper<DescriptionTooLongException>
 {
-	public Response toResponse(EndDateBeforeStartDateException e) 
+	public Response toResponse(DescriptionTooLongException e) 
 	{
 		return Response.status(StatusCodes.ERROR_400).entity(e.getMessage()).build();
 	}

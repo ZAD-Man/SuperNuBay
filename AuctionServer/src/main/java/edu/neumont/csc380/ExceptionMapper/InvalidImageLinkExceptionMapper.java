@@ -6,7 +6,6 @@ import javax.ws.rs.ext.Provider;
 
 import org.springframework.stereotype.Service;
 
-import edu.neumont.csc380.Exceptions.BidTooLowException;
 import edu.neumont.csc380.Exceptions.InvalidImageLinkException;
 import edu.neumont.csc380.Exceptions.StatusCodes;
 

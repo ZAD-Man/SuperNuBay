@@ -7,7 +7,6 @@ import javax.ws.rs.ext.Provider;
 import org.springframework.stereotype.Service;
 
 import edu.neumont.csc380.Exceptions.BidTooLowException;
-import edu.neumont.csc380.Exceptions.EndDateBeforeStartDateException;
 import edu.neumont.csc380.Exceptions.StatusCodes;
 
 @Provider

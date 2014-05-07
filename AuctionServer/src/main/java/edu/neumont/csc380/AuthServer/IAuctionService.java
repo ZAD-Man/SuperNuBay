@@ -7,8 +7,8 @@ import javax.ws.rs.core.Response;
 
 import org.apache.cxf.jaxrs.model.wadl.ElementClass;
 
-@Path("/authenticate")
-public interface IAuthenticationService {
+@Path("/auction")
+public interface IAuctionService {
 	
 	@POST
 	@Consumes("application/vnd.neumont.auth.edu-v1+json")
