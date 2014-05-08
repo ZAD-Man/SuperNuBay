@@ -10,7 +10,7 @@ public class BidTooLowException extends Exception implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	public BidTooLowException() {
-        super("The bid is too low (minimum is $.01");
+        super("The bid is too low");
     }
     public BidTooLowException(String msg)   {
         super(msg);

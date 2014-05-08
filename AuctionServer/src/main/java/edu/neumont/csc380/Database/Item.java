@@ -2,6 +2,9 @@ package edu.neumont.csc380.Database;
 
 import java.sql.Timestamp;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "item")
 public class Item {
 
 	

@@ -11,6 +11,7 @@ public class TestClient {
 	static String token = "";
 	
 	public static void main(String[] args){
+		System.out.println("--- WHAT HAPPENS WHEN YOU GO 'RYAN MILLER' ON A PROJECT ---");
 		String input = "";
 		TestClient test = new TestClient();
 		
@@ -38,7 +39,7 @@ public class TestClient {
 					test.verify();
 					break;
 				case 4:
-					test.createAuth();
+					test.createAuth(""); //fails here because it needs token - only the profile has it
 					break;
 				case 5:
 					test.updateAuth();
@@ -95,7 +96,7 @@ public class TestClient {
 		}
 	}
 	
-	private void createAuth(){
+	private void createAuth(String accessToken){
 		System.out.print("Enter userId: ");
 		String userId = scan.nextLine();
 		System.out.print("Enter username: ");
@@ -103,7 +104,7 @@ public class TestClient {
 		System.out.print("Enter password: ");
 		String password = scan.nextLine();
 		
-		AuthResponse response = client.createAuth(userId, userName, password, "FakeToken");
+		AuthResponse response = client.createAuth(userId, userName, password, accessToken);
 		System.out.println(response.toString());
 		
 		if( response.isSuccess() ) {
@@ -112,6 +113,13 @@ public class TestClient {
 			System.out.println("Creation failed!");
 		}
 	}
+	
+//	private void checkAuth(){
+//		System.out.print("Enter userId: ");
+//		String userId = scan.nextLine();
+//		AuthResponse response = client.checkAuth(userId, token);
+//		System.out.println(response.toString());
+//	}
 	
 	private void updateAuth(){
 		System.out.print("Enter userId: ");
@@ -130,6 +138,13 @@ public class TestClient {
 			System.out.println("Update failed!\n"); 
 		}
 	}
+	
+//	private void deleteAuth(){
+//		System.out.print("Enter userId: ");
+//		String userId = scan.nextLine();
+//		boolean success = client.deleteAuth(userId);
+//		System.out.println("Succeeded: " + success);
+//	}
 	
 	private void promptStoreToken(String tokenStr){
 		System.out.print("Would you like to store the token? y/n: ");
