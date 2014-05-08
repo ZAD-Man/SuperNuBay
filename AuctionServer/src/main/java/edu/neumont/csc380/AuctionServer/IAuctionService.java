@@ -43,5 +43,10 @@ public interface IAuctionService {
 	@Path("/item/{itemId}/bid")
 	@Produces("application/json")
 	Response placeBid(Bid bid) throws Exception;
+	
+	@GET
+	@Consumes("application/vnd.neumont.auction.edu-v1+json")
+	@Path("/item/{itemId}/bids")
+	Response getBids(@PathParam("itemId") Long id) throws Exception;
 }
 

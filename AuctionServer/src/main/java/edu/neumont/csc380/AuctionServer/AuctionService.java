@@ -39,6 +39,12 @@ public class AuctionService implements IAuctionService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Response getBids(Long id) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	
 }
