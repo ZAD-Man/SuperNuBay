@@ -12,13 +12,13 @@ public class AuctionService implements IAuctionService {
 
 	@Override
 	public Response getItem(Long id) throws Exception {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	@Override
 	public Response createItem(Item item) throws Exception {
-		// TODO Auto-generated method stub
+		new CMSService().addAuctionMedia(item);
 		return null;
 	}
 
@@ -30,7 +30,7 @@ public class AuctionService implements IAuctionService {
 
 	@Override
 	public Response deleteItem(Long id) throws Exception {
-		// TODO Auto-generated method stub
+		new CMSService().deleteMedia(id);
 		return null;
 	}
 

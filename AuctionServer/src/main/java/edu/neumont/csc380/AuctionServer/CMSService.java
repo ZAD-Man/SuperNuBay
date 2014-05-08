@@ -1,10 +1,14 @@
 package edu.neumont.csc380.AuctionServer;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+
+import edu.neumont.csc380.Database.Item;
 import edu.neumont.csc380.cms.service.MediaService;
+
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 
 import javax.ws.rs.core.Response;
+
 import java.util.Arrays;
 
 /**
@@ -48,4 +52,9 @@ public class CMSService {
                                 String mimeType) {
         service.addAuctionMedia(id, caption, data, mimeType);
     }
+
+	public void addAuctionMedia(Item item) {
+		// TODO Auto-generated method stub
+		
+	}
 }
