@@ -7,8 +7,14 @@ import edu.neumont.csc380.cms.service.MediaService;
 
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 
+import javax.imageio.ImageIO;
 import javax.ws.rs.core.Response;
 
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferByte;
+import java.awt.image.WritableRaster;
+import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -53,8 +59,17 @@ public class CMSService {
         service.addAuctionMedia(id, caption, data, mimeType);
     }
 
-	public void addAuctionMedia(Item item) {
-		// TODO Auto-generated method stub
-		
+	public void addAuctionMedia(Item item, String url) {
+        File imgPath = new File(url);
+        BufferedImage bufferedImage;
+        try {
+            bufferedImage = ImageIO.read(imgPath);
+            WritableRaster raster = bufferedImage.getRaster();
+            DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
+            addAuctionMedia(item.getId(), item.getDescription(), data.getData(),
+                    "image/jpeg");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 	}
 }
