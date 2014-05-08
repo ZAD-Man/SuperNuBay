@@ -20,7 +20,6 @@
 		<artifactId>authClient</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 		<scope>compile</scope>
-		<type>war</type>
 	</dependency>
 
       <!-- CMSClient dependency -->

@@ -17,31 +17,32 @@ public class AuctionService implements IAuctionService {
 	}
 
 	@Override
-	public Response createItem(Item item) throws Exception {
+	public Response createItem(Item item, String token) throws Exception {
 		new CMSService().addAuctionMedia(item);
+		
 		return null;
 	}
 
 	@Override
-	public Response updateItem(Long id, Item item) throws Exception {
+	public Response updateItem(Long id, Item item, String token) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Response deleteItem(Long id) throws Exception {
+	public Response deleteItem(Long id, String token) throws Exception {
 		new CMSService().deleteMedia(id);
 		return null;
 	}
 
 	@Override
-	public Response placeBid(Bid bid) throws Exception {
+	public Response placeBid(Bid bid, String token) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public Response getBids(Long id) throws Exception {
+	public Response getBids(Long id, String token) throws Exception {
 		// TODO Auto-generated method stub
 		return null;
 	}

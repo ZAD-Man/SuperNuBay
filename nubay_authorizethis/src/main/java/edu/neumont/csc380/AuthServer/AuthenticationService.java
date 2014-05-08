@@ -49,7 +49,6 @@ public class AuthenticationService implements IAuthenticationService {
 		return Response.status(204).build();
 	}
 
-	//TODO: This needs to create a user not check if one exists
 	public Response handleCreationRequest(Credentials creds) throws Exception {
 		Response response = null;
 		boolean exists = DataBase.getUsers().containsUser(creds.getUserName()); //CHECK IF USER EXISTS
