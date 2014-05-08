@@ -1,15 +1,12 @@
 package edu.neumont.csc380.AuctionServer;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
-
 import edu.neumont.csc380.Database.Item;
 import edu.neumont.csc380.cms.service.MediaService;
-
 import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
 
 import javax.imageio.ImageIO;
 import javax.ws.rs.core.Response;
-
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
@@ -59,7 +56,8 @@ public class CMSService {
         service.addAuctionMedia(id, caption, data, mimeType);
     }
 
-	public void addAuctionMedia(Item item, String url) {
+	public void addAuctionMedia(Item item) {
+        String url = item.getImageLink();
         File imgPath = new File(url);
         BufferedImage bufferedImage;
         try {
@@ -68,6 +66,7 @@ public class CMSService {
             DataBufferByte data = (DataBufferByte) raster.getDataBuffer();
             addAuctionMedia(item.getId(), item.getDescription(), data.getData(),
                     "image/jpeg");
+            String newLink = getMedia(item.getId()).toString();
         } catch (IOException e) {
             e.printStackTrace();
         }
