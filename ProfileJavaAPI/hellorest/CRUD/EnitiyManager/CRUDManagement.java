@@ -1,5 +1,10 @@
 package EnitiyManager;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,6 +15,8 @@ import org.springframework.stereotype.Service;
 
 import profile.Profile;
 import customExceptions.CustomException;
+import edu.neumont.csc380.AuthClient.AuthClient;
+import edu.neumont.csc380.AuthClient.AuthResponse;
 
 @Service("CRUDManagementService")
 public class CRUDManagement implements CRUDService {
@@ -54,8 +61,33 @@ public class CRUDManagement implements CRUDService {
             throw new CustomException("INVALID_EMAIL - Email is not a valid email address");
         }
 		
-		newProfile.setUserRating(0); //TODO: Set user rating correctly
+		newProfile.setUserRating(0);
+
+		BufferedReader reader = null;
+		URL url = getClass().getResource("ProfileToken.txt");
+		File file = new File(url.getPath());
+		String tokenFromFile = "";
+
+		try {
+			reader = new BufferedReader(new FileReader(file));
+			tokenFromFile = reader.readLine();
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (reader != null)
+					reader.close();
+			} catch (IOException ex) {
+				ex.printStackTrace();
+			}
+		}
 		
+		AuthClient authClient  = new AuthClient();
+		String password = "SuperSecurePassphrase";
+		authClient.createAuth(profile.getUserID()+"", profile.getName(), password, tokenFromFile);
+		AuthResponse authResponse = authClient.login(profile.getName(), password);
+		System.out.println(authResponse.toString());
 		tempServer.put(newProfile.getUserID(), newProfile);
 		
 		currentID++;
@@ -100,9 +132,6 @@ public class CRUDManagement implements CRUDService {
 		        }
 				
 				tempServer.put(id,profile);
-//				Profile updateProfile = (Profile) tempServer.get(id);
-//				updateProfile = profile;
-//				tempServer.put(updateProfile.getUserID(), updateProfile);	
 				
 				return Response.ok().build();
 			}
@@ -127,7 +156,6 @@ public class CRUDManagement implements CRUDService {
 		else
 		{
 			return Response.status(404).build();
-			//throw new CustomException("INVALID_ID – The given ID doesn’t exist.");
 		}
 		
 	}
@@ -142,7 +170,6 @@ public class CRUDManagement implements CRUDService {
 		else
 		{
 			return Response.status(404).build();
-			//throw new CustomException("INVALID_ID – The given ID doesn’t exist.");		
 		}
 	}
 	

@@ -7,16 +7,16 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "bid")
 public class Bid {
 
-	private String amt;
+	private double amt;
 	private int ownerId;
 	private long itemId;
 	private Timestamp created;
 	
 	
-	public String getAmt() {
+	public double getAmt() {
 		return amt;
 	}
-	public void setAmt(String amt) {
+	public void setAmt(double amt) {
 		this.amt = amt;
 	}
 	public int getOwnerId() {

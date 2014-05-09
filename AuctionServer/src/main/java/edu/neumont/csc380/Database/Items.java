@@ -22,7 +22,7 @@ public class Items {
 	}
 	
 	public void deleteItem(Item item) {
-		table.remove(item.getId());
+		deleteItem(item.getId());
 	}
 	
 	public void deleteItem(long id) {

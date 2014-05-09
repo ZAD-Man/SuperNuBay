@@ -24,7 +24,10 @@ public class ProfileRequestHandler implements RequestHandler {
 		TreeMap<String,Object> protocolHeaders =  (TreeMap<String, Object>) message.get(message.PROTOCOL_HEADERS);
 		
 		ArrayList al = (ArrayList) protocolHeaders.get("Authorization");
-		String authToken = (String) al.get(0);
+		String authToken = null;
+		if (al != null) {
+			authToken = (String) al.get(0);
+		}
 		
 		if (requestMethod.equals("PUT") || requestMethod.equals("DELETE")) {
 			if (authToken == null) {

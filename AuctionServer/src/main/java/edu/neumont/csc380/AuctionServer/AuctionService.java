@@ -1,9 +1,21 @@
 package edu.neumont.csc380.AuctionServer;
 
+<<<<<<< HEAD
+=======
+import java.util.Date;
+import java.util.List;
+
+import javax.ws.rs.core.Response;
+
+import org.springframework.stereotype.Service;
+
+>>>>>>> 553aa014fa45b2ffeec041540688942fe602c147
 import edu.neumont.csc380.Database.Bid;
+import edu.neumont.csc380.Database.Bids;
 import edu.neumont.csc380.Database.DataBase;
 import edu.neumont.csc380.Database.Item;
 import edu.neumont.csc380.Database.Items;
+import edu.neumont.csc380.Exceptions.BidTooLowException;
 import edu.neumont.csc380.Exceptions.IdMismatchException;
 import edu.neumont.csc380.Exceptions.TokenInvalidException;
 import org.springframework.stereotype.Service;
@@ -46,7 +58,15 @@ public class AuctionService implements IAuctionService {
 		if (!auth.verify(token)) {
 			throw new TokenInvalidException();
 		}
-		return null;
+		if (item.getId() != id) {
+			throw new IdMismatchException();
+		}
+		new CMSService().addAuctionMedia(item);
+		Items items = DataBase.getItems();
+		items.deleteItem(item.getId());;
+		Item returnItem = items.addItem(item);
+
+		return Response.status(200).entity(returnItem).build();
 	}
 
 	@Override
@@ -56,6 +76,7 @@ public class AuctionService implements IAuctionService {
 			throw new TokenInvalidException();
 		}
 		new CMSService().deleteMedia(id);
+		DataBase.getItems().deleteItem(id);
 		return null;
 	}
 
@@ -65,7 +86,20 @@ public class AuctionService implements IAuctionService {
 		if (!auth.verify(token)) {
 			throw new TokenInvalidException();
 		}
-		return null;
+		if ( bid.getAmt() <= 0 ){
+			throw new BidTooLowException();
+		}
+		Items items = DataBase.getItems();
+		if ( items.containsItem(bid.getItemId()) ) {
+			Item item = items.getById(bid.getItemId());
+			double highestBid = item.getHighestBid();
+			if (highestBid >= bid.getAmt() || 
+				item.getEndDate().before(new Date())) {
+				throw new BidTooLowException();
+			}
+			DataBase.getBids().getBidsById(item.getId()).add(bid);
+		}
+		return Response.status(200).entity(bid).build();
 	}
 
 	@Override
@@ -74,7 +108,8 @@ public class AuctionService implements IAuctionService {
 		if (!auth.verify(token)) {
 			throw new TokenInvalidException();
 		}
-		return null;
+		List<Bid> itemsBids = DataBase.getBids().getBidsById(id);
+		return Response.status(200).entity(itemsBids).build();
 	}
 	
 	
