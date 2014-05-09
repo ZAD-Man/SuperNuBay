@@ -4,7 +4,7 @@ import edu.neumont.csc380.AuthClient.AuthClient;
 
 public class AuthenticationService {
 
-	public static boolean verify (String token) {
+	public boolean verify (String token) {
 		return new AuthClient().verify(token).isSuccess();
 	}
 }
