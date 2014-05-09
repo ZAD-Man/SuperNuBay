@@ -1,8 +1,10 @@
 package edu.neumont.csc380.AuthServer;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URL;
 
 public class CreateValidator {
 	
@@ -13,13 +15,16 @@ public class CreateValidator {
 	 */
 	public static boolean isValidCreateToken(String token) {
 		BufferedReader reader = null;
-		String fileLocation = "ProfileToken.txt";
+		URL url = CreateValidator.class.getResource("ProfileToken.txt");
+		File file = new File(url.getPath());
+		String tokenFromFile = "";
 		boolean match = false;
-		
+
 		try {
-			String tokenFromFile;
-			reader = new BufferedReader(new FileReader(fileLocation));
+			reader = new BufferedReader(new FileReader(file));
 			tokenFromFile = reader.readLine();
+
+		
 			if (token.equals(tokenFromFile)){
 				match = true;
 			}
