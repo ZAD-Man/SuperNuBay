@@ -125,7 +125,7 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log." suffix=".txt"/>
 
-	<Context docBase="ProfileServer" path="/profile-server" reloadable="true" source="org.eclipse.jst.j2ee.server:ProfileServer"/><Context docBase="AuctionServer" path="/auction" reloadable="true" source="org.eclipse.jst.j2ee.server:AuctionServer"/><Context docBase="nubay_authorizethis" path="/authorization" reloadable="true" source="org.eclipse.jst.j2ee.server:nubay_authorizethis"/><Context docBase="GitProject1 - Copy not git" path="/hellorest-server" reloadable="true" source="org.eclipse.jst.j2ee.server:GitProject1 - Copy not git"/></Host>
+	<Context docBase="AuctionServer" path="/auction" reloadable="true" source="org.eclipse.jst.j2ee.server:AuctionServer"/><Context docBase="profile-server" path="/profile-server" reloadable="true" source="org.eclipse.jst.j2ee.server:profile-server"/><Context docBase="nubay_authorizethis" path="/authorization" reloadable="true" source="org.eclipse.jst.j2ee.server:nubay_authorizethis"/><Context docBase="GitProject1 - Copy not git" path="/hellorest-server" reloadable="true" source="org.eclipse.jst.j2ee.server:GitProject1 - Copy not git"/></Host>
     </Engine>
   </Service>
 </Server>
