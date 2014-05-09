@@ -62,7 +62,7 @@ public class TestClient {
 	private void verify(){
 		System.out.print("Enter userId: ");
 		String userId = scan.nextLine();
-		AuthResponse response = client.verify(userId, token);
+		AuthResponse response = client.verify(token);
 		if(response == null || response.isSuccess()) {
 			System.out.println("Verification succeeded.\n");
 		} else { System.out.println("Verification resulted to be invalid!\n"); }

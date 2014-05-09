@@ -80,7 +80,7 @@ public class AuthenticationService implements IAuthenticationService {
 			AuthorizationToken userToken = TokenManager.decryptToken(auth.getToken());
 			String userID = userToken.getUserId();
 			verifyUserExists(auth);
-			validateUserToken(userID, userToken);
+			validateUserToken(userToken);
 			response = generateResponse(userID);
 		} else { throw new TokenMissingException(); }
 		return response;
@@ -123,8 +123,8 @@ public class AuthenticationService implements IAuthenticationService {
 	 * @throws TokenExpiredException
 	 * @throws TokenMissingException
 	 */
-	private AuthorizationToken validateUserToken(String userID, AuthorizationToken userToken) throws Exception {
-		AuthorizationToken dbToken =  DataBase.getTokens().getTokenByUserId(userID);
+	private AuthorizationToken validateUserToken(AuthorizationToken userToken) throws Exception {
+		AuthorizationToken dbToken =  DataBase.getTokens().getTokenByUserId(userToken.getUserId());
 		if(dbToken == null) {
 			throw new TokenMissingException();
 		}

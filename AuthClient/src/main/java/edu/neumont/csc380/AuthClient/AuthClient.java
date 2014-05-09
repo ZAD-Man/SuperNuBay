@@ -31,9 +31,8 @@ public class AuthClient {
 		return invokeAuthMethod(AuthInvoker.LOGIN, null, creds);
 	}
 	
-	public AuthResponse verify(String userId, String token){
+	public AuthResponse verify(String token){
 		AuthPayload payload = new AuthPayload();
-		payload.setId(userId);
 		payload.setToken(token);
 		
 		return invokeAuthMethod(AuthInvoker.VERIFY, payload, null);
