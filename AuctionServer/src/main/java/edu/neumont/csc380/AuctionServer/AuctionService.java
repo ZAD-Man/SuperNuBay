@@ -1,7 +1,5 @@
 package edu.neumont.csc380.AuctionServer;
 
-<<<<<<< HEAD
-=======
 import java.util.Date;
 import java.util.List;
 
@@ -9,18 +7,13 @@ import javax.ws.rs.core.Response;
 
 import org.springframework.stereotype.Service;
 
->>>>>>> 553aa014fa45b2ffeec041540688942fe602c147
 import edu.neumont.csc380.Database.Bid;
-import edu.neumont.csc380.Database.Bids;
 import edu.neumont.csc380.Database.DataBase;
 import edu.neumont.csc380.Database.Item;
 import edu.neumont.csc380.Database.Items;
 import edu.neumont.csc380.Exceptions.BidTooLowException;
 import edu.neumont.csc380.Exceptions.IdMismatchException;
 import edu.neumont.csc380.Exceptions.TokenInvalidException;
-import org.springframework.stereotype.Service;
-
-import javax.ws.rs.core.Response;
 
 @Service("IAuctionService")
 public class AuctionService implements IAuctionService {
