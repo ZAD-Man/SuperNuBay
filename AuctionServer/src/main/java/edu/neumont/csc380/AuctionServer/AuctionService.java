@@ -5,7 +5,10 @@ import javax.ws.rs.core.Response;
 import org.springframework.stereotype.Service;
 
 import edu.neumont.csc380.Database.Bid;
+import edu.neumont.csc380.Database.DataBase;
 import edu.neumont.csc380.Database.Item;
+import edu.neumont.csc380.Database.Items;
+import edu.neumont.csc380.Exceptions.IdMismatchException;
 import edu.neumont.csc380.Exceptions.TokenInvalidException;
 
 @Service("IAuctionService")
@@ -13,8 +16,15 @@ public class AuctionService implements IAuctionService {
 
 	@Override
 	public Response getItem(Long id) throws Exception {
+		Items items = DataBase.getItems();
 		
-		return null;
+		if (!items.containsItem(id)) {
+			//TODO: make a better exception like no ID exists - currently, no such exception exists
+			throw new IdMismatchException();
+		}
+		Item returnItem = items.getById(id);
+		
+		return Response.status(200).entity(returnItem).build();
 	}
 
 	@Override
@@ -24,8 +34,10 @@ public class AuctionService implements IAuctionService {
 			throw new TokenInvalidException();
 		}
 		new CMSService().addAuctionMedia(item);
-		
-		return null;
+		Items items = DataBase.getItems();
+		Item returnItem = items.addItem(item);
+
+		return Response.status(200).entity(returnItem).build();
 	}
 
 	@Override

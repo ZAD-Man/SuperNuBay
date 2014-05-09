@@ -6,18 +6,19 @@ public class Items {
 	private HashMap<Long, Item> table = new HashMap<Long, Item>();
 	private long currentIndex = 1;
 	
-	public Item getById(String id) {
+	public Item getById(long id) {
 		return table.get(id);
 	}
 	
-	public boolean containsItem(String id) {
+	public boolean containsItem(long id) {
 		return table.containsKey(id);
 	}
 	
-	public void addItem(Item item) {
+	public Item addItem(Item item) {
 		item.setId(currentIndex);
-		table.put(currentIndex, item);
 		currentIndex++;
+		return table.put(currentIndex, item);
+		
 	}
 	
 	public void deleteItem(Item item) {
