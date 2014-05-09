@@ -44,6 +44,15 @@
 	   	  <ref bean="invalidImageExceptionMapper"/>
 	   	  <ref bean="descriptionTooLongExceptionMapper"/>
 	   	  <ref bean="unsafeDescriptionExceptionMapper"/>
+	   	  <ref bean="idMismatchExceptionMapper"/>
+	   	  <ref bean="attributeLockedExceptionMapper"/>
+	   	  <ref bean="biddingClosedExceptionMapper"/>
+	   	  <ref bean="descriptionTooLongExceptionMapper"/>
+	   	  <ref bean="invalidImageExceptionMapper"/>
+	   	  <ref bean="invalidImageLinkExceptionMapper"/>
+	   	  <ref bean="tokenInvalidExceptionMapper"/>
+	   	  <ref bean="tokenMissingExceptionMapper"/>
+	   	  <ref bean="tokenRemovedExceptionMapper"/>
 	   </jaxrs:providers>
 	</jaxrs:server>
 </beans>
