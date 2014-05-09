@@ -67,6 +67,7 @@ public class CMSService {
             addAuctionMedia(item.getId(), item.getDescription(), data.getData(),
                     "image/jpeg");
             String newLink = getMedia(item.getId()).toString();
+
         } catch (IOException e) {
             e.printStackTrace();
         }
